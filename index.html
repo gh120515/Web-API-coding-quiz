@@ -16,14 +16,31 @@
 
     <title>Web API-based Coding Quiz</title>
 </head>
+
 <body>
 
-    <!-- header with highscore & time count down -->
+    <!-- highscore & timer cards-->
 
-    <h3><span>View Highscores</span> <span class="time">Time left: <span class="time-left"></span> </span></h3>
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body center">
+                <a href="#" class="btn btn-outline-primary">View Highscore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body center">
+              <h5 class="card-title">Time left: <span class="time-left"></span></h5>
+
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- starting screen (display on launch) -->
-    <article class="starting-screen">
+    <article class="start-screen">
 
     <div class="container">
         <section class="row m-4">
@@ -31,7 +48,7 @@
             <div class="card-body">
             <h5 class="card-title">Coding Quiz Challenge</h5>
             <p class="card-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <a href="#" class="btn btn-primary start-button">Get Stated</a>
+            <a href="#" class="btn btn-primary" id="start-button">Get Started</a>
         </div>
         </section>
     </div>
@@ -40,19 +57,19 @@
 
     <!-- quiz screen (hidden on launch) -->
 
-    <article class="quiz-screen hide">
+    <article id="display-container">
 
         <div class="container">
             <section class="row m-4">
                 <div class="card text-center">
                     <div class="card-body">
-                    <h5 class="card-title quiz-question"></h5>
-                    <ul class="list-group">
-                        <li class="list-group-item question 1">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                      </ul>
+                        <div class="number-of-count">
+                            <span class="number-of-question">1 of 3 questions</span>
+                          </div>
+                        <div id="quiz-container">
+                            <!--JS to append quiz questions & options  -->
+                        </div>
+                    <a href="#" class="btn btn-primary" id="next-button">Next</a>
                 </div>
             </section>
         </div>
@@ -61,8 +78,21 @@
 
     <!-- results screen (display on completion of quiz) -->
 
-    <article class="results-screen">
+    <article class="score-container hide">
 
+    <div class="container">
+        <section class="row m-4">
+            <div class="card text-center">
+            <div class="card-body">
+            <h5 class="card-title">Results</h5>
+                <div id="user-score">
+                    Your Score
+                </div>
+            <p class="card-text">How did you do?</p>
+            <a href="#" class="btn btn-primary" id="restart">Restart</a>
+        </div>
+        </section>
+    </div>
 
     </article>
 
