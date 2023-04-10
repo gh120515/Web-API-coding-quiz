@@ -40,7 +40,11 @@ THEN I can save my initials and my score
 CSS Styling sourced from Bootstrap <https://getbootstrap.com>
 
 Code references include:
-- 'Quiz App With JavaScript' by Coding Artist <https://codingartistweb.com/2022/06/quiz-app-with-javascript/> (Majority of the base function has been based on this build - modifications made for other functions)
+- 'Quiz App With JavaScript' by Coding Artist: <https://codingartistweb.com/2022/06/quiz-app-with-javascript/> (Majority of the base function has been based on this build - modifications made for other functions)
+
+Other references:
+- 'JavaScript Array sort()' by W3 Schools: <https://www.w3schools.com/jsref/jsref_sort.asp>; 
+
 
 <!-- List your collaborators, if any, with links to their GitHub profiles.
 

@@ -1,5 +1,9 @@
 /* parts of CSS code by Coding Artist  <https://codingartistweb.com/2022/06/quiz-app-with-javascript/> */
 
+:root {
+    --base-color:#0a69ed;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -7,7 +11,7 @@
     font-family: "Poppins", sans-serif;
   }
   body {
-    background-color: #0a69ed;
+    background-color: var(--base-color)
   }
   .start-screen,
   .score-container {
@@ -70,7 +74,7 @@
   #next-button {
     font-size: 1em;
     margin-top: 1.5em;
-    background-color: #0a69ed;
+    background-color: var(--base-color);
     color: #ffffff;
     padding: 0.7em 1.8em;
     border-radius: 0.3em;
@@ -94,8 +98,20 @@
     color: #ffffff;
   }
 
-  /*  */
+  /* Reference code ends here*/
 
   .center {
     text-align: center;
   }
+
+ #user-highscore {
+    text-align: center;
+    color: white;
+  }
+
+.submit {
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin: 10px;
+}

@@ -11,9 +11,12 @@ let userScore = document.getElementById("user-score");
 let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
 
+let submitBtn = document.getElementById(".submit");
+let highscoreName = document.getElementById("highscoreName");
+
 let questionCount;
 let scoreCount = 0;
-let count = 10;
+let count = 50;
 let countdown;
 
     // Questions
@@ -74,35 +77,42 @@ nextBtn.addEventListener(
     //if last question
     if (questionCount == quizArray.length) {
       //hide question container and display score
-      displayContainer.classList.add("hide");
-      scoreContainer.classList.remove("hide");
-      //user score
-      userScore.innerHTML =
-        "Your score is " + scoreCount + " out of " + questionCount;
+      gameOver();
     } else {
       //display questionCount
       countOfQuestion.innerHTML =
         questionCount + 1 + " of " + quizArray.length + " Question";
       //display quiz
       quizDisplay(questionCount);
-      count = 11;
-      clearInterval(countdown);
-      timerDisplay();
     }
   })
 );
-//Timer
+
+  //Timer functions
 const timerDisplay = () => {
   countdown = setInterval(() => {
     count--;
     timeLeft.innerHTML = `${count}s`;
     if (count == 0) {
       clearInterval(countdown);
-      displayNext();
+      gameOver();
     }
   }, 1000);
 };
-//Display quiz
+
+  // Game over if all questions answered OR time ran out
+function gameOver() {
+  clearInterval(countdown);
+  displayContainer.classList.add("hide");
+  scoreContainer.classList.remove("hide");
+
+  //user score
+  userScore.innerHTML =
+    "Your score is " + scoreCount + " out of " + questionCount;
+};
+
+    //Display quiz
+
 const quizDisplay = (questionCount) => {
   let quizCards = document.querySelectorAll(".container-mid");
   //Hide other cards
@@ -112,7 +122,9 @@ const quizDisplay = (questionCount) => {
   //display current question card
   quizCards[questionCount].classList.remove("hide");
 };
-//Quiz Creation
+
+    //Quiz Creation
+
 function quizCreator() {
   //randomly sort questions
   quizArray.sort(() => Math.random() - 0.5);
@@ -140,7 +152,8 @@ function quizCreator() {
     quizContainer.appendChild(div);
   }
 }
-//Checker Function to check if option is correct or not
+
+    //Checker Function to check if option is correct or not
 function checker(userOption) {
   let userSolution = userOption.innerText;
   let question =
@@ -151,6 +164,14 @@ function checker(userOption) {
     userOption.classList.add("correct");
     scoreCount++;
   } else {
+    // lose time with incorrect answer
+    count -= 10;
+
+    // game over if count < 0
+    if (count < 0) {
+      gameOver();
+    }
+
     userOption.classList.add("incorrect");
     //For marking the correct option
     options.forEach((element) => {
@@ -166,25 +187,55 @@ function checker(userOption) {
     element.disabled = true;
   });
 }
+
 //initial setup
 function initial() {
   quizContainer.innerHTML = "";
   questionCount = 0;
   scoreCount = 0;
-  count = 11;
+  count = 50;
   clearInterval(countdown);
   timerDisplay();
   quizCreator();
   quizDisplay(questionCount);
 }
-//when user click on start button
+
+  //when user click on start button
 startButton.addEventListener("click", () => {
   startScreen.classList.add("hide");
   displayContainer.classList.remove("hide");
   initial();
 });
-//hide quiz and display start screen
+  //hide quiz and display start screen
 window.onload = () => {
   startScreen.classList.remove("hide");
   displayContainer.classList.add("hide");
 };
+
+
+  // submit highscore button
+
+function submitHighscore() {
+  highscoreName.value.trim();
+
+  if (highscoreName) {
+    let highscores = JSON.parse(window.localStorage.getItem("highscores"));
+
+    let userHighscore = {
+      score: scoreCount,
+      initials: initial
+    };
+
+    highscores.push(userHighscore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // clicking submit will also redirect into the highscore page
+    window.location.href = "./highscore.html";
+
+  }
+}
+
+
+  //onclick functions
+
+submitBtn.onclick = submitHighscore();
