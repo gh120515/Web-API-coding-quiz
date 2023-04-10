@@ -9,6 +9,8 @@ It has been created using a variety of basic web app design concepts, such as HT
 
 ## Usage
 
+Page link: <https://gh120515.github.io/Web-API-coding-quiz/>
+
 ![Webpage on startup](assets/img/initial.png)
 
 Press the 'Get Started' button to start the quiz. 
