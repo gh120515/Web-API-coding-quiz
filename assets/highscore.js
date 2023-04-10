@@ -16,12 +16,11 @@ function printHighscores() {
     // append each highscore item in a list (li)
     highscores.forEach(function(score) {
     let highscoreListItem = document.createElement("li");
-    highscoreListItem.textContent = score.initials + " = " + score.score;
+    highscoreListItem.textContent = score.initials + " with a score of " + score.score + "!";
 
-    let highscoreList = document.getElementById("highscores");
+    let highscoreList = document.getElementById("highscore-list");
     highscoreList.appendChild(highscoreListItem); 
     });
-
 }
 
     // clear highscore in localstorage
@@ -32,3 +31,5 @@ function clearHighscore() {
 };
 
 clear.addEventListener("click", clearHighscore);
+
+printHighscores();

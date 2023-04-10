@@ -219,6 +219,7 @@ window.onload = () => {
   // submit highscore button
 
 function submitHighscore(event) {
+  // preventDefault to avoid refreshing page
   event.preventDefault();
   highscoreName.value.trim();
 
@@ -235,7 +236,6 @@ function submitHighscore(event) {
 
     // clicking submit will also redirect into the highscore page
     window.location.href = "./highscore.html";
-
   }
 }
 

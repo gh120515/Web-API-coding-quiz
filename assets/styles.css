@@ -1,4 +1,4 @@
-/* parts of CSS code by Coding Artist  <https://codingartistweb.com/2022/06/quiz-app-with-javascript/> */
+/* parts of modified CSS code by Coding Artist  <https://codingartistweb.com/2022/06/quiz-app-with-javascript/> */
 
 :root {
     --base-color:#0a69ed;
@@ -116,3 +116,11 @@
     margin: 10px;
 }
 
+h5 {
+    font-weight: bold;
+}
+
+ul, ol {
+    padding: 0;
+    margin-left: 1em;
+  }
