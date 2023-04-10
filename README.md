@@ -39,6 +39,9 @@ THEN I can save my initials and my score
 
 CSS Styling sourced from Bootstrap <https://getbootstrap.com>
 
+Code references include:
+- 'Quiz App With JavaScript' by Coding Artist <https://codingartistweb.com/2022/06/quiz-app-with-javascript/>
+
 <!-- List your collaborators, if any, with links to their GitHub profiles.
 
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.

@@ -18,20 +18,57 @@
 </head>
 <body>
 
-    <h3>View Highscores <span class="time">Time left: </span></h3>
+    <!-- header with highscore & time count down -->
+
+    <h3><span>View Highscores</span> <span class="time">Time left: <span class="time-left"></span> </span></h3>
+
+    <!-- starting screen (display on launch) -->
+    <article class="starting-screen">
 
     <div class="container">
         <section class="row m-4">
-        <div class="card text-center">
+            <div class="card text-center">
             <div class="card-body">
             <h5 class="card-title">Coding Quiz Challenge</h5>
             <p class="card-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <a href="#" class="btn btn-primary">Get Stated</a>
+            <a href="#" class="btn btn-primary start-button">Get Stated</a>
         </div>
         </section>
     </div>
+
+    </article>
+
+    <!-- quiz screen (hidden on launch) -->
+
+    <article class="quiz-screen hide">
+
+        <div class="container">
+            <section class="row m-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                    <h5 class="card-title quiz-question"></h5>
+                    <ul class="list-group">
+                        <li class="list-group-item question 1">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                      </ul>
+                </div>
+            </section>
+        </div>
+
+    </article>
+
+    <!-- results screen (display on completion of quiz) -->
+
+    <article class="results-screen">
+
+
+    </article>
+
+    <!-- script ref link -->
     
-    <link rel="script" href="./assets/script.js" />
+    <script src="./assets/script.js"></script>
 
 </body>
 </html>

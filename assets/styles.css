@@ -2,3 +2,7 @@
 .time {
     float: right;
 }
+
+.hide {
+    display: none;
+}
