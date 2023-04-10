@@ -11,7 +11,7 @@ let userScore = document.getElementById("user-score");
 let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
 
-let submitBtn = document.getElementById(".submit");
+let submitBtn = document.getElementById("submit-button");
 let highscoreName = document.getElementById("highscoreName");
 
 let questionCount;
@@ -97,6 +97,7 @@ const timerDisplay = () => {
       clearInterval(countdown);
       gameOver();
     }
+      
   }, 1000);
 };
 
@@ -108,7 +109,9 @@ function gameOver() {
 
   //user score
   userScore.innerHTML =
-    "Your score is " + scoreCount + " out of " + questionCount;
+    // "Your score is " + scoreCount + " out of " + questionCount;
+    // above line to adjust for number of questions
+    "Your score is " + scoreCount + " out of 5";
 };
 
     //Display quiz
@@ -167,12 +170,13 @@ function checker(userOption) {
     // lose time with incorrect answer
     count -= 10;
 
+    userOption.classList.add("incorrect");
+
     // game over if count < 0
     if (count < 0) {
       gameOver();
     }
 
-    userOption.classList.add("incorrect");
     //For marking the correct option
     options.forEach((element) => {
       if (element.innerText == quizArray[questionCount].correct) {
@@ -180,8 +184,7 @@ function checker(userOption) {
       }
     });
   }
-  //clear interval(stop timer)
-  clearInterval(countdown);
+
   //disable all options
   options.forEach((element) => {
     element.disabled = true;
@@ -215,15 +218,16 @@ window.onload = () => {
 
   // submit highscore button
 
-function submitHighscore() {
+function submitHighscore(event) {
+  event.preventDefault();
   highscoreName.value.trim();
 
   if (highscoreName) {
-    let highscores = JSON.parse(window.localStorage.getItem("highscores"));
+    let highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
 
     let userHighscore = {
       score: scoreCount,
-      initials: initial
+      initials: highscoreName.value,
     };
 
     highscores.push(userHighscore);
@@ -238,4 +242,4 @@ function submitHighscore() {
 
   //onclick functions
 
-submitBtn.onclick = submitHighscore();
+submitBtn.onclick = submitHighscore;

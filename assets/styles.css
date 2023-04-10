@@ -29,7 +29,7 @@
     outline: none;
     cursor: pointer;
   }
-  #start-button,
+  #start-button, #highscore-button,
   #restart {
     font-size: 1.3em;
     padding: 0.5em 1.8em;
@@ -115,3 +115,4 @@
     padding: 0 5px;
     margin: 10px;
 }
+
